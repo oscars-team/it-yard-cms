@@ -23,12 +23,12 @@ namespace SiteServer.BackgroundPages.Core
             if (contentInfo.IsChecked && contentInfo.ChannelId > 0)
             {
                 url =
-                    $"<a href='{PageRedirect.GetRedirectUrlToContent(siteInfo.Id, contentInfo.ChannelId, contentInfo.Id)}' target='blank'>{displayString}</a>";
+                    $"<a>{displayString}</a>";
             }
             else
             {
                 url =
-                    $@"<a href=""javascript:;"" onclick=""{ModalContentView.GetOpenWindowString(siteInfo.Id, contentInfo.ChannelId, contentInfo.Id, pageUrl)}"">{displayString}</a>";
+                    $@"<a href=""javascript:;"" >{displayString}</a>";
             }
 
             var image = string.Empty;
@@ -268,7 +268,12 @@ function detection_{attributeName}(){{
 	}});	
 }}
 </script>
-<div class=""btn-group btn-group-sm"">
+<div class=""
+
+
+
+
+"">
     <button class=""btn"" onclick=""{ModalTextEditorImportWord.GetOpenWindowString(siteInfo.Id, attributeName)}"">导入Word</button>
     <button class=""btn"" onclick=""{ModalTextEditorInsertImage.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入图片</button>
     <button class=""btn"" onclick=""{ModalTextEditorInsertVideo.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入视频</button>

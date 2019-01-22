@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,8 +46,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -869,6 +870,7 @@
     <Content Include="SiteServer\Cloud\dashboard.cshtml" />
     <Content Include="SiteServer\Cloud\login.cshtml" />
     <Content Include="SiteServer\Cloud\register.cshtml" />
+    <Content Include="SiteServer\Cms\comment.aspx" />
     <Content Include="SiteServer\Cms\contents.cshtml" />
     <Content Include="SiteServer\Cms\contentsLayerArrange.cshtml" />
     <Content Include="SiteServer\Cms\contentsLayerAttributes.cshtml" />
@@ -924,6 +926,7 @@
     <Content Include="SiteFiles\assets\Styles\parts.css.1.1" />
     <Content Include="SiteFiles\assets\Styles\spaces.css.1.1" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="SiteServer\Cms\pageCommentHandler.ashx" />
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2269,6 +2272,7 @@
   <ItemGroup>
     <Compile Include="CentralizedPrefixProvider.cs" />
     <Compile Include="Controllers\App\ChannelController.cs" />
+    <Compile Include="Controllers\App\CommentController.cs" />
     <Compile Include="Controllers\App\ContentController.cs" />
     <Compile Include="Controllers\Home\HomeContentAddLayerImageController.cs" />
     <Compile Include="Controllers\Home\HomeContentsLayerCopyController.cs" />
@@ -2353,6 +2357,9 @@
     <Compile Include="ErrorRedirectModule.cs" />
     <Compile Include="NamespaceHttpControllerSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteServer\Cms\pageCommentHandler.ashx.cs">
+      <DependentUpon>pageCommentHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="WebApiConfig.cs" />
   </ItemGroup>

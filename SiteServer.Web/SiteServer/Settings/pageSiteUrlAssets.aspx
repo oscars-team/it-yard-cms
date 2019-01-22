@@ -12,30 +12,30 @@
   <form class="m-l-15 m-r-15" runat="server">
     <div class="card-box" style="padding: 10px; margin-bottom: 10px;">
       <ul class="nav nav-pills nav-justified">
-        <li class="nav-item">
+      <%--  <li class="nav-item">
           <a class="nav-link" href="pageSite.aspx">系统站点管理</a>
-        </li>
-        <li class="nav-item">
+        </li>--%>
+      <%--  <li class="nav-item">
           <a class="nav-link" href="pageSiteUrlWeb.aspx">Web地址</a>
-        </li>
+        </li>--%>
         <li class="nav-item active">
           <a class="nav-link" href="pageSiteUrlAssets.aspx">文件地址</a>
         </li>
-        <li class="nav-item">
+        <%--<li class="nav-item">
           <a class="nav-link" href="pageSiteUrlApi.aspx">API地址</a>
-        </li>
+        </li>--%>
         <li class="nav-item">
           <a class="nav-link" href="siteTables.cshtml">内容表管理</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="pageSiteKeyword.aspx">敏感词管理</a>
         </li>
-        <li class="nav-item">
+       <%-- <li class="nav-item">
           <a class="nav-link" href="pageSiteTemplate.aspx">站点模板管理</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="siteTemplateOnline.cshtml">在线站点模板</a>
-        </li>
+        </li>--%>
       </ul>
     </div>
     <ctrl:alerts runat="server" />
