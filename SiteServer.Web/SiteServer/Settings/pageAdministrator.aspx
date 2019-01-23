@@ -27,9 +27,9 @@
         <li class="nav-item">
           <a class="nav-link" href="pageAdminArea.aspx">所在区域管理</a>
         </li>
-        <li class="nav-item">
+<%--        <li class="nav-item">
           <a class="nav-link" href="adminAccessTokens.cshtml">API密钥管理</a>
-        </li>
+        </li>--%>
       </ul>
     </div>
     <ctrl:alerts runat="server" />

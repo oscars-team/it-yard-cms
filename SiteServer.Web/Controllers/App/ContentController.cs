@@ -26,6 +26,17 @@ namespace SiteServer.API.Controllers.App
                 return InternalServerError(ex);
             }
         }
+        [HttpGet, Route("hot")]
+        public IHttpActionResult hot() {
+            try
+            {
+                return Ok(getHot());
+            }catch(Exception e)
+            {
+                LogUtils.AddErrorLog(e);
+                return InternalServerError(e);
+            }
+        }
 
         private dynamic[] getConentsByChannel(int channelId, int page = 1, int size = 10)
         {
@@ -55,6 +66,17 @@ namespace SiteServer.API.Controllers.App
                 contents = conn.Query(sqlPagedQuery, new { channelId, min, max }).ToArray();
             }
             return contents;
+        }
+
+        private dynamic[] getHot()
+        {
+            dynamic[] hot;
+            using (var conn = SqlUtils.GetIDbConnection(WebConfigUtils.DatabaseType, WebConfigUtils.ConnectionString))
+            {
+                var sql = "select co.Id,co.Title,co.ImageUrl as image,co.content,ch.ChannelName as cateName,co.AddDate time from siteserver_Content_1 co inner join siteserver_Channel ch on co.ChannelId=ch.Id where co.IsTop='true' or co.IsRecommend='true' or co.IsHot='true'";
+                hot=conn.Query(sql).ToArray();
+                return hot;
+            }
         }
     }
 }

@@ -218,10 +218,10 @@ namespace SiteServer.API.Controllers.Pages
 
                 var linkMenus = new List<Tab>
                 {
-                    new Tab {Href = PageUtility.GetSiteUrl(siteInfo, false), Target = "_blank", Text = "访问站点"},
-                    new Tab {Href = ApiRoutePreview.GetSiteUrl(siteInfo.Id), Target = "_blank", Text = "预览站点"}
+                    //new Tab {Href = PageUtility.GetSiteUrl(siteInfo, false), Target = "_blank", Text = "访问站点"},
+                    //new Tab {Href = ApiRoutePreview.GetSiteUrl(siteInfo.Id), Target = "_blank", Text = "预览站点"}
                 };
-                menus.Add(new Tab {Text = "站点链接", Children = linkMenus.ToArray()});
+                //menus.Add(new Tab {Text = "站点链接", Children = linkMenus.ToArray()});                    modify on 2019/1/18
             }
 
             if (isSuperAdmin)
@@ -255,6 +255,20 @@ namespace SiteServer.API.Controllers.Pages
                     {
                         foreach (var childTab in tabCollection.Tabs)
                         {
+                            if(childTab.Text== "投稿内容")                                    //modify on 2019/1/18
+                            {
+                                continue;
+                            }
+                            if (childTab.Text == "组别与标签设置")
+                            {
+                                continue;
+                            }
+                            if (childTab.Text == "静态页生成设置")
+                            {
+                                continue;
+                            }
+
+
                             if (!isSuperAdmin && !TabManager.IsValid(childTab, permissionList)) continue;
 
                             children.Add(new Tab

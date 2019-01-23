@@ -33,6 +33,9 @@ namespace SiteServer.CMS.Core
             var tabs = GetTabs(menuPath);
             foreach (var parent in tabs.Tabs)
             {
+                if (parent.Text=="插件管理") {
+                    continue;
+                }
                 list.Add(parent);
             }
 
@@ -115,7 +118,37 @@ namespace SiteServer.CMS.Core
                 if (tabCollection?.Tabs != null)
                 {
                     foreach (var tabCollectionTab in tabCollection.Tabs)
-                    {
+                    {                                                     //modify  on 2019/1/18
+                        if (tabCollectionTab.Text == "显示管理")
+                        {
+                            continue;
+                        }
+                        if (tabCollectionTab.Text == "生成管理")
+                        {
+                            continue;
+                        }
+
+                        if (tabCollectionTab.Text == "统计图表")
+                        {
+                            continue;
+                        }
+
+                        if (tabCollectionTab.Text == "运行日志")
+                        {
+                            continue;
+                        }
+
+                        if (tabCollectionTab.Text == "实用工具")
+                        {
+                            continue;
+                        }
+
+                        if (tabCollectionTab.Text == "创建新站点")
+                        {
+                            continue;
+                        }
+
+
                         tabs.Add(tabCollectionTab.Clone());
                     }
                 }
