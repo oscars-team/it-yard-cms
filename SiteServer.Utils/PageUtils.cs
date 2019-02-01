@@ -363,7 +363,7 @@ namespace SiteServer.Utils
             {
                 if (builder.Length > 0) builder.Remove(0, 1);
             }
-            return string.Concat(url, builder.ToString());
+            return string.Concat(url, builder.ToString());//拼接路径
         }
 
         public static string AddQueryStringIfNotExists(string url, NameValueCollection queryString)

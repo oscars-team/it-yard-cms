@@ -169,7 +169,9 @@ $(document).ready(function() {
   </div>
 
   <div class=""btn-group ml-1"">
-    <button id=""{(isHead ? "btnHeadMore" : "btnFootMore")}"" type=""button"" class=""btn btn-light text-secondary dropdown-toggle {(isHead ? "" : "dropup")}"">更多<span class=""caret""></span></button>
+    <button id=""{(isHead ? "btnHeadMore" : "btnFootMore")}"" type=""button"" class=""
+
+dropdown-toggle {(isHead ? "" : "dropup")}"">更多<span class=""caret""></span></button>
     <div id=""{(isHead ? "dropdownHeadMore" : "dropdownFootMore")}"" class=""dropdown-menu"">
       {btnDropDownsHtml}
     </div>

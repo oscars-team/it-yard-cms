@@ -13,13 +13,13 @@
 
     <div class="card-box" style="padding: 10px; margin-bottom: 10px;">
       <ul class="nav nav-pills nav-justified">
-        <li class="nav-item">
-          <a class="nav-link" href="pageConfigurationUploadImage.aspx?siteId=<%=SiteId%>">图片上传设置</a>
+        <li class="nav-item" >
+          <a class="nav-link"  href="pageConfigurationUploadImage.aspx?siteId=<%=SiteId%>">图片上传设置</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="display:none;">
           <a class="nav-link" href="pageConfigurationUploadVideo.aspx?siteId=<%=SiteId%>">视频上传设置</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" style="display:none;">
           <a class="nav-link" href="javascript:;">附件上传设置</a>
         </li>
         <li class="nav-item">

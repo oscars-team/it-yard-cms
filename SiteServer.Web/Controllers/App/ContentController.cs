@@ -44,14 +44,13 @@ namespace SiteServer.API.Controllers.App
             using (var conn = SqlUtils.GetIDbConnection(WebConfigUtils.DatabaseType, WebConfigUtils.ConnectionString))
             {
                 int min = (page - 1) * size;
-                int max = page * size;
+                int max = page * size;                                           /*//modify on 2019/1/24  ,VideoUrl video*/
                 var sqlQuery = @"select   ct.ChannelId channelId
                                         , cn.ChannelName channelName
                                         , ct.Id id
                                         , Title title
                                         , ct.AddDate time
                                         , ct.ImageUrl image
-                                        , VideoUrl video
                                         , ct.Content content 
                                         , isTop
                                         , isHot
@@ -74,7 +73,7 @@ namespace SiteServer.API.Controllers.App
             using (var conn = SqlUtils.GetIDbConnection(WebConfigUtils.DatabaseType, WebConfigUtils.ConnectionString))
             {
                 var sql = "select co.Id,co.Title,co.ImageUrl as image,co.content,ch.ChannelName as cateName,co.AddDate time from siteserver_Content_1 co inner join siteserver_Channel ch on co.ChannelId=ch.Id where co.IsTop='true' or co.IsRecommend='true' or co.IsHot='true'";
-                hot=conn.Query(sql).ToArray();
+                hot = conn.Query(sql).ToArray();
                 return hot;
             }
         }

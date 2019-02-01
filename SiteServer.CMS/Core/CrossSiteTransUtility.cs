@@ -287,7 +287,8 @@ namespace SiteServer.CMS.Core
                 DataProvider.ContentDao.Insert(targetTableName, targetSiteInfo, channelInfo, contentInfo);
 
                 #region 复制资源
-                //资源：图片，文件，视频
+                //资源：图片，文件，
+
                 if (!string.IsNullOrEmpty(contentInfo.GetString(BackgroundContentAttribute.ImageUrl)))
                 {
                     //修改图片

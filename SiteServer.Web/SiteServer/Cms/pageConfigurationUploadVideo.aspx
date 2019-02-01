@@ -16,10 +16,10 @@
         <li class="nav-item">
           <a class="nav-link" href="pageConfigurationUploadImage.aspx?siteId=<%=SiteId%>">图片上传设置</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" style="display:none;">
           <a class="nav-link" href="javascript:;">视频上传设置</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="display:none;">
           <a class="nav-link" href="pageConfigurationUploadFile.aspx?siteId=<%=SiteId%>">附件上传设置</a>
         </li>
         <li class="nav-item">

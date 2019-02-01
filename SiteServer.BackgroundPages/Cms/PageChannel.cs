@@ -83,8 +83,8 @@ namespace SiteServer.BackgroundPages.Cms
             if (HasChannelPermissionsIgnoreChannelId(ConfigManager.ChannelPermissions.ChannelAdd))
             {
                 builder.Append($@"
-<a href=""javascript:;"" class=""btn btn-light text-secondary"" onclick=""{ModalChannelsAdd.GetOpenWindowString(SiteId, SiteId, GetRedirectUrl(SiteId, SiteId))}"">快速添加</a>
-<a href=""{PageChannelAdd.GetRedirectUrl(SiteId, SiteId, GetRedirectUrl(SiteId, 0))}"" class=""btn btn-light text-secondary"">添加栏目</a>
+<a href=""javascript:;"" style='display:none;' class=""btn btn-light text-secondary"" onclick=""{ModalChannelsAdd.GetOpenWindowString(SiteId, SiteId, GetRedirectUrl(SiteId, SiteId))}"">快速添加</a>
+<a href=""{PageChannelAdd.GetRedirectUrl(SiteId, SiteId, GetRedirectUrl(SiteId, 0))}"" style='display:none;' class=""btn btn-light text-secondary"">添加栏目</a>
 <a href=""javascript:;"" class=""btn btn-light text-secondary"" onclick=""{ModalChannelImport.GetOpenWindowString(SiteId, SiteId)}"">导 入</a>
 ");
             }
@@ -96,7 +96,7 @@ namespace SiteServer.BackgroundPages.Cms
             if (HasChannelPermissionsIgnoreChannelId(ConfigManager.ChannelPermissions.ChannelEdit))
             {
                 builder.Append($@"
-<a href=""javascript:;"" class=""btn btn-light text-secondary"" onclick=""{ModalAddToGroup.GetOpenWindowStringToChannel(SiteId)}"">设置栏目组</a>
+<a href=""javascript:;"" class=""btn btn-light text-secondary"" style='display:none;' onclick=""{ModalAddToGroup.GetOpenWindowStringToChannel(SiteId)}"">设置栏目组</a>
 ");
 
                 builder.Append($@"
@@ -107,7 +107,7 @@ namespace SiteServer.BackgroundPages.Cms
             if (HasChannelPermissionsIgnoreChannelId(ConfigManager.ChannelPermissions.ChannelTranslate))
             {
                 builder.Append($@"
-<a href=""javascript:;"" class=""btn btn-light text-secondary"" onclick=""{
+<a href=""javascript:;"" class=""btn btn-light text-secondary"" style='display:none;' onclick=""{
                         PageUtils.GetRedirectStringWithCheckBoxValue(
                             PageChannelTranslate.GetRedirectUrl(SiteId,
                                 GetRedirectUrl(SiteId, _currentChannelId)), "ChannelIDCollection",
@@ -131,7 +131,7 @@ namespace SiteServer.BackgroundPages.Cms
                 HasChannelPermissionsIgnoreChannelId(ConfigManager.ChannelPermissions.CreatePage))
             {
                 builder.Append($@"
-<a href=""javascript:;"" class=""btn btn-light text-secondary"" onclick=""{ModalCreateChannels.GetOpenWindowString(SiteId)}"">生 成</a>
+<a href=""javascript:;"" style='display:none;' class=""btn btn-light text-secondary"" onclick=""{ModalCreateChannels.GetOpenWindowString(SiteId)}"">生 成</a>
 ");
             }
 

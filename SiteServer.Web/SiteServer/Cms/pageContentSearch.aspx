@@ -105,12 +105,12 @@
 
           <hr />
 
-          <asp:Button class="btn m-r-5" id="BtnSelect" Text="选择显示项" runat="server" />
-          <asp:Button class="btn m-r-5" id="BtnAddToGroup" Text="添加到内容组" runat="server" />
-          <asp:Button class="btn m-r-5" id="BtnTranslate" Text="转 移" runat="server" />
-          <asp:PlaceHolder ID="PhCheck" runat="server">
+          <%--<asp:Button class="btn m-r-5" id="BtnSelect" Text="选择显示项" runat="server" />
+          <asp:Button class="btn m-r-5" id="BtnAddToGroup" Text="添加到内容组" runat="server" />--%>
+          <%--<asp:Button class="btn m-r-5" id="BtnTranslate" Text="转 移" runat="server" />--%>
+   <%--       <asp:PlaceHolder ID="PhCheck" runat="server">
             <asp:Button class="btn m-r-5" id="BtnCheck" Text="审 核" runat="server" />
-          </asp:PlaceHolder>
+          </asp:PlaceHolder>--%>
           <asp:PlaceHolder id="PhTrash" runat="server" visible="false">
             <asp:Button class="btn m-r-5 btn-success" id="BtnRestore" Text="还 原" runat="server" />
             <asp:Button class="btn m-r-5" id="BtnRestoreAll" Text="全部还原" runat="server" />

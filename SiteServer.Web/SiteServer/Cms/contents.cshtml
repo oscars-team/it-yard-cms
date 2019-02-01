@@ -14,14 +14,14 @@
     <i class="fa fa-columns"></i>
     显示列
   </button>
-  <button v-if="count > 0" v-on:click="btnLayerClick({title: '批量导出', name: 'Export', full: true}, $event)" class="btn btn-outline-primary btn-sm">
+  @*<button v-if="count > 0" v-on:click="btnLayerClick({title: '批量导出', name: 'Export', full: true}, $event)" class="btn btn-outline-primary btn-sm">
     <i class="fa fa-download"></i>
     导出
   </button>
   <button v-if="permissions.isAdd" v-on:click="btnLayerClick({title: '批量导入', name: 'Import', full: true}, $event)" class="btn btn-outline-primary btn-sm">
     <i class="fa fa-upload"></i>
     导入
-  </button>
+  </button>*@
   <button v-if="count > 0 && permissions.isEdit" v-on:click="btnLayerClick({title: '批量整理', name: 'Arrange', width: 550, height: 350}, $event)"
     class="btn btn-outline-primary btn-sm">
     <i class="fa fa-list-ol"></i>
@@ -33,11 +33,11 @@
     <i class="fa fa-flag"></i>
     属性
   </button>
-  <button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  @*<button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量设置组别', name: 'Group', withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-check-square"></i>
     内容组
-  </button>
+  </button>*@
   <button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量排序', name: 'Taxis', width: 450, height: 280, withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-sort"></i>
@@ -58,16 +58,16 @@
     <i class="fa fa-trash"></i>
     删除
   </button>
-  <button v-if="count > 0 && permissions.isCheck" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  @*<button v-if="count > 0 && permissions.isCheck" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量审核', name: 'Check', full: true, withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-shield"></i>
     审核
-  </button>
-  <button v-if="count > 0 && permissions.isCreate" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  </button>*@
+  @*<button v-if="count > 0 && permissions.isCreate" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnCreateClick" class="btn btn-sm">
     <i class="ion-wand"></i>
     生成
-  </button>
+  </button>*@
 </div>
 
 <div v-if="pageAlert" class="alert" v-bind:class="{ 'alert-warning': pageAlert.type === 'warning', 'alert-success': pageAlert.type === 'success', 'alert-danger': pageAlert.type === 'danger' }">
@@ -162,14 +162,14 @@
     <i class="fa fa-columns"></i>
     显示列
   </button>
-  <button v-if="count > 0" v-on:click="btnLayerClick({title: '批量导出', name: 'Export', full: true}, $event)" class="btn btn-outline-primary btn-sm">
+  @*<button v-if="count > 0" v-on:click="btnLayerClick({title: '批量导出', name: 'Export', full: true}, $event)" class="btn btn-outline-primary btn-sm">
     <i class="fa fa-download"></i>
     导出
   </button>
   <button v-if="permissions.isAdd" v-on:click="btnLayerClick({title: '批量导入', name: 'Import', full: true}, $event)" class="btn btn-outline-primary btn-sm">
     <i class="fa fa-upload"></i>
     导入
-  </button>
+  </button>*@
   <button v-if="count > 0 && permissions.isEdit" v-on:click="btnLayerClick({title: '批量整理', name: 'Arrange', width: 550, height: 350}, $event)"
     class="btn btn-outline-primary btn-sm">
     <i class="fa fa-list-ol"></i>
@@ -181,11 +181,11 @@
     <i class="fa fa-flag"></i>
     属性
   </button>
-  <button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  @*<button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量设置组别', name: 'Group', withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-check-square"></i>
     内容组
-  </button>
+  </button>*@
   <button v-if="count > 0 && permissions.isEdit" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量排序', name: 'Taxis', width: 450, height: 280, withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-sort"></i>
@@ -206,16 +206,16 @@
     <i class="fa fa-trash"></i>
     删除
   </button>
-  <button v-if="count > 0 && permissions.isCheck" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  @*<button v-if="count > 0 && permissions.isCheck" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnLayerClick({title: '批量审核', name: 'Check', full: true, withContents: true}, $event)" class="btn btn-sm">
     <i class="fa fa-shield"></i>
     审核
-  </button>
-  <button v-if="count > 0 && permissions.isCreate" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
+  </button>*@
+  @*<button v-if="count > 0 && permissions.isCreate" :class="{'btn-outline-primary': selectedContentIds.length > 0, disabled: selectedContentIds.length === 0}"
     v-on:click="btnCreateClick" class="btn btn-sm">
     <i class="ion-wand"></i>
     生成
-  </button>
+  </button>*@
 </div>
 
 <hr />

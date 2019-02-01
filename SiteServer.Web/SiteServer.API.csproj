@@ -919,14 +919,20 @@
     <Content Include="SiteServer\Shared\_LayoutLayer.cshtml" />
     <Content Include="SiteServer\Shared\_LayoutRoot.cshtml" />
     <Content Include="SiteServer\Shared\_LayoutWhite.cshtml" />
-    <Content Include="SiteServer\web.config" />
     <Content Include="SiteFiles\assets\Flashes\videojs\captions.vtt" />
     <Content Include="SiteFiles\assets\Styles\addition.css.1.1" />
     <Content Include="SiteFiles\assets\Styles\candy_buttons.css.1.0" />
     <Content Include="SiteFiles\assets\Styles\parts.css.1.1" />
     <Content Include="SiteFiles\assets\Styles\spaces.css.1.1" />
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="SiteServer\Cms\pageCommentHandler.ashx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2264,9 +2270,6 @@
     <Content Include="SiteServer\Settings\userStyle.js" />
     <Content Include="SiteServer\Shared\tableStyle.js" />
     <Content Include="SiteServer\Shared\tableValidate.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="安装向导.html" />
   </ItemGroup>
   <ItemGroup>

@@ -41,13 +41,21 @@ namespace SiteServer.BackgroundPages.Controls
                 var value = BackgroundInputTypeParser.Parse(SiteInfo, ChannelId, styleInfo, Attributes, pageScripts, out extra);
 
                 if (string.IsNullOrEmpty(value) && string.IsNullOrEmpty(extra)) continue;
-
+                //modify
+                if (styleInfo.DisplayName=="ÊÓÆµ") {
+                    continue;
+                }
+                if (styleInfo.DisplayName == "¸½¼þ")
+                {
+                    continue;
+                }
                 if (styleInfo.InputType == InputType.TextEditor)
                 {
                     var commands = WebUtils.GetTextEditorCommands(SiteInfo, styleInfo.AttributeName);
                     builder.Append($@"
 <div class=""form-group form-row"">
-    <label class=""col-sm-1 col-form-label text-right"">{styleInfo.DisplayName}</label>
+    <label class=""
+"">{styleInfo.DisplayName}</label>
     <div class=""col-sm-10"">
         {commands}
         <div class=""m-t-10"">

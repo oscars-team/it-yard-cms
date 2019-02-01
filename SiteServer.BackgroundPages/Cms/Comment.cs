@@ -20,12 +20,12 @@ namespace SiteServer.BackgroundPages.Cms
 {
     public class Comment : BasePageCms
     {
-        public DropDownList DdlChannelId;
-        public DropDownList DdlState;
-        public DropDownList DdlSearchType;
-        public TextBox TbKeyword;
-        public DateTimeTextBox TbDateFrom;
-        public DateTimeTextBox TbDateTo;
+        //public DropDownList DdlChannelId;
+        //public DropDownList DdlState;
+        //public DropDownList DdlSearchType;
+        //public TextBox TbKeyword;
+        //public DateTimeTextBox TbDateFrom;
+        //public DateTimeTextBox TbDateTo;
 
         public Repeater RptContents;
         public Pager PgContents;
@@ -165,26 +165,26 @@ namespace SiteServer.BackgroundPages.Cms
             //    }
             //}
 
-            ChannelManager.AddListItems(DdlChannelId.Items, SiteInfo, true, true, AuthRequest.AdminPermissionsImpl);
+            //ChannelManager.AddListItems(DdlChannelId.Items, SiteInfo, true, true, AuthRequest.AdminPermissionsImpl);
 
-            if (_isCheckOnly)
-            {
-                CheckManager.LoadContentLevelToCheck(DdlState, SiteInfo, isChecked, checkedLevel);
-            }
-            else
-            {
-                CheckManager.LoadContentLevelToList(DdlState, SiteInfo, _isCheckOnly, isChecked, checkedLevel);
-            }
+            //if (_isCheckOnly)
+            //{
+            //    CheckManager.LoadContentLevelToCheck(DdlState, SiteInfo, isChecked, checkedLevel);
+            //}
+            //else
+            //{
+            //    CheckManager.LoadContentLevelToList(DdlState, SiteInfo, _isCheckOnly, isChecked, checkedLevel);
+            //}
 
-            ControlUtils.SelectSingleItem(DdlState, state.ToString());
+            //ControlUtils.SelectSingleItem(DdlState, state.ToString());
 
-            foreach (var styleInfo in _allStyleInfoList)
-            {
-                if (styleInfo.InputType == InputType.TextEditor) continue;
+            //foreach (var styleInfo in _allStyleInfoList)
+            //{
+            //    if (styleInfo.InputType == InputType.TextEditor) continue;
 
-                var listitem = new ListItem(styleInfo.DisplayName, styleInfo.AttributeName);
-                DdlSearchType.Items.Add(listitem);
-            }
+            //    var listitem = new ListItem(styleInfo.DisplayName, styleInfo.AttributeName);
+            //    DdlSearchType.Items.Add(listitem);
+            //}
 
             //ETriStateUtils.AddListItems(DdlState, "全部", "已审核", "待审核");
 
@@ -340,12 +340,12 @@ namespace SiteServer.BackgroundPages.Cms
                 {
                     _pageUrl = PageUtils.GetCmsUrl(SiteId, nameof(PageContentSearch), new NameValueCollection
                     {
-                        {"channelId", DdlChannelId.SelectedValue},
-                        {"state", DdlState.SelectedValue},
-                        {"searchType", DdlSearchType.SelectedValue},
-                        {"keyword", TbKeyword.Text},
-                        {"dateFrom", TbDateFrom.Text},
-                        {"dateTo", TbDateTo.Text},
+                        //{"channelId", DdlChannelId.SelectedValue},
+                        //{"state", DdlState.SelectedValue},
+                        //{"searchType", DdlSearchType.SelectedValue},
+                        //{"keyword", TbKeyword.Text},
+                        //{"dateFrom", TbDateFrom.Text},
+                        //{"dateTo", TbDateTo.Text},
                         {"isCheckOnly", _isCheckOnly.ToString()},
                         {"isTrashOnly", _isTrashOnly.ToString()},
                         {"isWritingOnly", _isWritingOnly.ToString()},

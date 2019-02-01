@@ -169,17 +169,17 @@ $('#{styleInfo.AttributeName}_colorContainer').hide();
 ");
 
                 extraBuilder.Append($@"
-<div class=""btn-group btn-group-sm"" style=""float:left;"">
-    <button class=""btn{(formatStrong ? @" btn-success" : string.Empty)}"" style=""font-weight:bold;font-size:12px;"" onclick=""{styleInfo
+<div class=""btn-group btn-group-sm"" /*style=""float:left;display:none;""*/ >
+    <button  class=""btn{(formatStrong ? @" btn-success" : string.Empty)}"" style=""font-weight:bold;font-size:12px;"" onclick=""{styleInfo
                     .AttributeName}_strong(this);return false;"">粗体</button>
-    <button class=""btn{(formatEm ? " btn-success" : string.Empty)}"" style=""font-style:italic;font-size:12px;"" onclick=""{styleInfo
+    <button  class=""btn{(formatEm ? " btn-success" : string.Empty)}"" style=""font-style:italic;font-size:12px;"" onclick=""{styleInfo
                     .AttributeName}_em(this);return false;"">斜体</button>
-    <button class=""btn{(formatU ? " btn-success" : string.Empty)}"" style=""text-decoration:underline;font-size:12px;"" onclick=""{styleInfo
+    <button  class=""btn{(formatU ? " btn-success" : string.Empty)}"" style=""text-decoration:underline;font-size:12px;"" onclick=""{styleInfo
                     .AttributeName}_u(this);return false;"">下划线</button>
-    <button class=""btn{(!string.IsNullOrEmpty(formatColor) ? " btn-success" : string.Empty)}"" style=""font-size:12px;"" id=""{styleInfo
+    <button  class=""btn{(!string.IsNullOrEmpty(formatColor) ? " btn-success" : string.Empty)}"" style=""font-size:12px;"" id=""{styleInfo
                     .AttributeName}_colorBtn"" onclick=""$('#{styleInfo.AttributeName}_colorContainer').toggle();return false;"">颜色</button>
 </div>
-<div id=""{styleInfo.AttributeName}_colorContainer"" class=""input-append"" style=""float:left;display:none"">
+<div id=""{styleInfo.AttributeName}_colorContainer"" class=""input-append"" style=""float:left;"">
     <input id=""{styleInfo.AttributeName}_formatColor"" name=""{styleInfo.AttributeName}_formatColor"" class=""input-mini color {{required:false}}"" type=""text"" value=""{formatColor}"" placeholder=""颜色值"">
     <button class=""btn"" type=""button"" onclick=""Title_color();return false;"">确定</button>
 </div>
@@ -630,7 +630,7 @@ $(document).ready(function(){{
             if (channelId > 0)
             {
                 btnAddHtml = $@"
-    <button class=""btn"" onclick=""add_{styleInfo.AttributeName}('',true);return false;"">
+    <button style='display:none' class=""btn"" onclick=""add_{styleInfo.AttributeName}('',true);return false;"">
         新增
     </button>
 ";
@@ -644,10 +644,10 @@ $(document).ready(function(){{
     <button class=""btn"" onclick=""{ModalSelectImage.GetOpenWindowString(siteInfo, styleInfo.AttributeName)}"">
         选择
     </button>
-    <button class=""btn"" onclick=""{ModalCuttingImage.GetOpenWindowStringWithTextBox(siteInfo.Id, styleInfo.AttributeName)}"">
+    <button style='display:none' class=""btn"" onclick=""{ModalCuttingImage.GetOpenWindowStringWithTextBox(siteInfo.Id, styleInfo.AttributeName)}"">
         裁切
     </button>
-    <button class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewImage(siteInfo.Id, styleInfo.AttributeName)}"">
+    <button style='display:none' class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewImage(siteInfo.Id, styleInfo.AttributeName)}"">
         预览
     </button>
     {btnAddHtml}
@@ -681,13 +681,13 @@ function delete_{attributeName}(obj){{
 var index_{attributeName} = 0;
 function add_{attributeName}(val,foucs){{
     index_{attributeName}++;
-    var inputHtml = '<input id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
+    var inputHtml = '<input  id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
     var btnHtml = '<div class=""btn-group btn-group-sm"">';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""select_{attributeName}(this, '+index_{attributeName}+');return false;"">选择</button>';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""upload_{attributeName}(this, '+index_{attributeName}+');return false;"">上传</button>';
-    btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""cutting_{attributeName}(this, '+index_{attributeName}+');return false;"">裁切</button>';
-    btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">预览</button>';
-    btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""delete_{attributeName}(this);return false;"">删除</button>';
+    btnHtml += '<button style='display:none' class=""btn"" href=""javascript:;"" onclick=""cutting_{attributeName}(this, '+index_{attributeName}+');return false;"">裁切</button>';
+    btnHtml += '<button style='display:none' class=""btn"" href=""javascript:;"" onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">预览</button>';
+    btnHtml += '<button  class=""btn"" href=""javascript:;"" onclick=""delete_{attributeName}(this);return false;"">删除</button>';
     btnHtml += '</div>';
     var div = $('.{extendAttributeName}').length == 0 ? $('#{attributeName}').parent().parent() : $('.{extendAttributeName}:last');
     div.after('<div class=""form-group form-row {extendAttributeName}""><label class=""col-sm-1 col-form-label text-right""></label><div class=""col-sm-6"">' + inputHtml + '</div><div class=""col-sm-5"">' + btnHtml + '</div></div>');
@@ -710,7 +710,7 @@ function add_{attributeName}(val,foucs){{
 
             extraBuilder.Append("</script>");
 
-            return $@"<input id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{attributes.GetString(attributeName)}"" />";
+            return $@"<input  id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{attributes.GetString(attributeName)}"" />";
         }
 
         private static string ParseVideo(IAttributes attributes, SiteInfo siteInfo, int channelId, TableStyleInfo styleInfo, StringBuilder extraBulder)
@@ -721,21 +721,21 @@ function add_{attributeName}(val,foucs){{
             if (channelId > 0)
             {
                 btnAddHtml = $@"
-    <button class=""btn"" onclick=""add_{attributeName}('',true);return false;"">
+    <button style='display:none' class=""btn"" onclick=""add_{attributeName}('',true);return false;"">
         新增
     </button>
 ";
             }
 
             extraBulder.Append($@"
-<div class=""btn-group btn-group-sm"">
+<div class=""btn-group btn-group-sm"" style='display:none'>
     <button class=""btn"" onclick=""{ModalUploadVideo.GetOpenWindowStringToTextBox(siteInfo.Id, attributeName)}"">
         上传
     </button>
-    <button class=""btn"" onclick=""{ModalSelectVideo.GetOpenWindowString(siteInfo, attributeName)}"">
+    <button style='display:none' class=""btn"" onclick=""{ModalSelectVideo.GetOpenWindowString(siteInfo, attributeName)}"">
         选择
     </button>
-    <button class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewVideo(siteInfo.Id, attributeName)}"">
+    <button style='display:none' class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewVideo(siteInfo.Id, attributeName)}"">
         预览
     </button>
     {btnAddHtml}
@@ -763,15 +763,15 @@ function delete_{attributeName}(obj){{
 var index_{attributeName} = 0;
 function add_{attributeName}(val,foucs){{
     index_{attributeName}++;
-    var inputHtml = '<input id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
+    var inputHtml = '<input style='display:none' id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
     var btnHtml = '<div class=""btn-group btn-group-sm"">';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""select_{attributeName}(this, '+index_{attributeName}+');return false;"">选择</button>';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""upload_{attributeName}(this, '+index_{attributeName}+');return false;"">上传</button>';
-    btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">预览</button>';
+    btnHtml += '<button class=""btn"" href=""javascript:;"" style='display:none' onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">预览</button>';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""delete_{attributeName}(this);return false;"">删除</button>';
     btnHtml += '</div>';
     var div = $('.{extendAttributeName}').length == 0 ? $('#{attributeName}').parent().parent() : $('.{extendAttributeName}:last');
-    div.after('<div class=""form-group form-row {extendAttributeName}""><label class=""col-sm-1 col-form-label text-right""></label><div class=""col-sm-6"">' + inputHtml + '</div><div class=""col-sm-5"">' + btnHtml + '</div></div>');
+    div.after('<div style='display:none;' class=""form-group form-row {extendAttributeName}""><label class=""col-sm-1 col-form-label text-right""></label><div style='display:none;' class=""col-sm-6"">' + inputHtml + '</div><div class=""col-sm-5"">' + btnHtml + '</div></div>');
     if (foucs) $('#{attributeName}_'+index_{attributeName}).focus();
 
 }}
@@ -791,7 +791,7 @@ function add_{attributeName}(val,foucs){{
 
             extraBulder.Append("</script>");
 
-            return $@"<input id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{attributes.GetString(attributeName)}"" />";
+            return $@"<input style='display:none' id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{attributes.GetString(attributeName)}"" />";
         }
 
         private static string ParseFile(IAttributes attributes, SiteInfo siteInfo, int channelId, TableStyleInfo styleInfo, StringBuilder extraBuilder)
@@ -813,21 +813,21 @@ function add_{attributeName}(val,foucs){{
             if (channelId > 0)
             {
                 btnAddHtml = $@"
-<button class=""btn"" onclick=""add_{attributeName}('',true);return false;"">
+<button style='display:none'  class=""btn"" onclick=""add_{attributeName}('',true);return false;"">
     新增
 </button>
 ";
             }
 
             extraBuilder.Append($@"
-<div class=""btn-group btn-group-sm"">
+<div class=""btn-group btn-group-sm"" style='display:none'>
     <button class=""btn"" onclick=""{ModalUploadFile.GetOpenWindowStringToTextBox(siteInfo.Id, EUploadType.File, attributeName)}"">
         上传
     </button>
     <button class=""btn"" onclick=""{ModalSelectFile.GetOpenWindowString(siteInfo.Id, attributeName, relatedPath)}"">
         选择
     </button>
-    <button class=""btn"" onclick=""{ModalFileView.GetOpenWindowStringWithTextBoxValue(siteInfo.Id, attributeName)}"">
+    <button style='display:none' class=""btn"" onclick=""{ModalFileView.GetOpenWindowStringWithTextBoxValue(siteInfo.Id, attributeName)}"">
         查看
     </button>
     {btnAddHtml}
@@ -858,11 +858,11 @@ function delete_{attributeName}(obj){{
 var index_{attributeName} = 0;
 function add_{attributeName}(val,foucs){{
     index_{attributeName}++;
-    var inputHtml = '<input id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
+    var inputHtml = '<input style='display:none;' style='display:none' id=""{attributeName}_'+index_{attributeName}+'"" name=""{extendAttributeName}"" type=""text"" class=""form-control"" value=""'+val+'"" />';
     var btnHtml = '<div class=""btn-group btn-group-sm"">';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""select_{attributeName}(this, '+index_{attributeName}+');return false;"">选择</button>';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""upload_{attributeName}(this, '+index_{attributeName}+');return false;"">上传</button>';
-    btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">查看</button>';
+    btnHtml += '<button class=""btn"" href=""javascript:;"" style='display:none' onclick=""preview_{attributeName}(this, '+index_{attributeName}+');return false;"">查看</button>';
     btnHtml += '<button class=""btn"" href=""javascript:;"" onclick=""delete_{attributeName}(this);return false;"">删除</button>';
     btnHtml += '</div>';
     var div = $('.{extendAttributeName}').length == 0 ? $('#{attributeName}').parent().parent() : $('.{extendAttributeName}:last');
@@ -886,7 +886,7 @@ function add_{attributeName}(val,foucs){{
             extraBuilder.Append("</script>");
 
             return
-                $@"<input id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{value}"" />";
+                $@"<input style='display:none;' id=""{attributeName}"" name=""{attributeName}"" type=""text"" class=""form-control"" value=""{value}"" />";
         }
 
         private static string ParseCustomize(IAttributes attributes, TableStyleInfo styleInfo, StringBuilder extraBuilder)

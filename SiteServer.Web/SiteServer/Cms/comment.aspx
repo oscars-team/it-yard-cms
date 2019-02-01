@@ -47,7 +47,7 @@
 
         <div class="card-box">
 
-            <div class="m-t-10">
+            <%--<div class="m-t-10">
                 <div class="form-inline">
                     <div class="form-group">
                         <label class="col-form-label m-r-10">栏目</label>
@@ -83,7 +83,7 @@
 
                     <asp:Button class="btn btn-success m-l-10 btn-md" OnClick="Search_OnClick" ID="Search" Text="搜 索" runat="server" />
                 </div>
-            </div>
+            </div>--%>
 
             <div class="panel panel-default m-t-20">
                 <div class="panel-body p-0">

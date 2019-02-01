@@ -27,7 +27,9 @@
         <ctrl:alerts runat="server" />
 
         <div class="card-box">
-          <div class="m-t-0 header-title">
+          <div class="
+              
+              ">
             批量转移
           </div>
           <p class="text-muted font-13 m-b-25"></p>

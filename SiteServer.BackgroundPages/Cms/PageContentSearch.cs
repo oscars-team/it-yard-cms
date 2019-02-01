@@ -29,12 +29,12 @@ namespace SiteServer.BackgroundPages.Cms
         public Pager PgContents;
         public Literal LtlColumnsHead;
 
-        public Button BtnAddToGroup;
-        public Button BtnDelete;
-        public Button BtnTranslate;
-        public Button BtnSelect;
+        //public Button BtnAddToGroup;
+        //public Button BtnDelete;
+        //public Button BtnTranslate;
+        //public Button BtnSelect;
         public PlaceHolder PhCheck;
-        public Button BtnCheck;
+        //public Button BtnCheck;
         public PlaceHolder PhTrash;
         public Button BtnRestore;
         public Button BtnRestoreAll;
@@ -193,63 +193,63 @@ namespace SiteServer.BackgroundPages.Cms
             LtlColumnsHead.Text += TextUtility.GetColumnsHeadHtml(_styleInfoList, _pluginColumns, _attributesOfDisplay);
             
 
-            BtnSelect.Attributes.Add("onclick", ModalSelectColumns.GetOpenWindowString(SiteId, _channelId));
+            //BtnSelect.Attributes.Add("onclick", ModalSelectColumns.GetOpenWindowString(SiteId, _channelId));
 
-            if (_isTrashOnly)
-            {
-                LtlColumnsHead.Text += @"<th class=""text-center text-nowrap"" width=""150"">删除时间</th>";
-                BtnAddToGroup.Visible = BtnTranslate.Visible = BtnCheck.Visible = false;
-                PhTrash.Visible = true;
-                if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentDelete))
-                {
-                    BtnDelete.Visible = false;
-                    BtnDeleteAll.Visible = false;
-                }
-                else
-                {
-                    BtnDelete.Attributes.Add("onclick", PageContentDelete.GetRedirectClickStringForMultiChannels(SiteId, true, PageUrl));
-                    BtnDeleteAll.Attributes.Add("onclick", PageUtils.GetRedirectStringWithConfirm(PageUtils.AddQueryString(PageUrl, "IsDeleteAll", "True"), "确实要清空回收站吗?"));
-                }
-                BtnRestore.Attributes.Add("onclick", PageUtils.GetRedirectStringWithCheckBoxValue(PageUtils.AddQueryString(PageUrl, "IsRestore", "True"), "IDsCollection", "IDsCollection", "请选择需要还原的内容！"));
-                BtnRestoreAll.Attributes.Add("onclick", PageUtils.GetRedirectStringWithConfirm(PageUtils.AddQueryString(PageUrl, "IsRestoreAll", "True"), "确实要还原所有内容吗?"));
-            }
-            else
-            {
-                LtlColumnsHead.Text += @"<th class=""text-center text-nowrap"" width=""100"">操作</th>";
+            //if (_isTrashOnly)
+            //{
+            ////    LtlColumnsHead.Text += @"<th class=""text-center text-nowrap"" width=""150"">删除时间</th>";
+            ////    BtnAddToGroup.Visible = BtnTranslate.Visible = BtnCheck.Visible = false;
+            ////    PhTrash.Visible = true;
+            ////    if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentDelete))
+            ////    {
+            ////        BtnDelete.Visible = false;
+            ////        BtnDeleteAll.Visible = false;
+            ////    }
+            ////    else
+            ////    {
+            ////        BtnDelete.Attributes.Add("onclick", PageContentDelete.GetRedirectClickStringForMultiChannels(SiteId, true, PageUrl));
+            ////        BtnDeleteAll.Attributes.Add("onclick", PageUtils.GetRedirectStringWithConfirm(PageUtils.AddQueryString(PageUrl, "IsDeleteAll", "True"), "确实要清空回收站吗?"));
+            ////    }
+            ////    BtnRestore.Attributes.Add("onclick", PageUtils.GetRedirectStringWithCheckBoxValue(PageUtils.AddQueryString(PageUrl, "IsRestore", "True"), "IDsCollection", "IDsCollection", "请选择需要还原的内容！"));
+            ////    BtnRestoreAll.Attributes.Add("onclick", PageUtils.GetRedirectStringWithConfirm(PageUtils.AddQueryString(PageUrl, "IsRestoreAll", "True"), "确实要还原所有内容吗?"));
+            //}
+            //else
+            //{
+            //    //LtlColumnsHead.Text += @"<th class=""text-center text-nowrap"" width=""100"">操作</th>";
 
-                BtnAddToGroup.Attributes.Add("onclick", ModalAddToGroup.GetOpenWindowStringToContentForMultiChannels(SiteId));
+            //    //BtnAddToGroup.Attributes.Add("onclick", ModalAddToGroup.GetOpenWindowStringToContentForMultiChannels(SiteId));
 
-                if (HasChannelPermissions(SiteId, ConfigManager.ChannelPermissions.ContentCheck))
-                {
-                    BtnCheck.Attributes.Add("onclick", ModalContentCheck.GetOpenWindowStringForMultiChannels(SiteId, PageUrl));
-                    if (_isCheckOnly)
-                    {
-                        BtnCheck.CssClass = "btn m-r-5 btn-success";
-                    }
-                }
-                else
-                {
-                    PhCheck.Visible = false;
-                }
+            //    //if (HasChannelPermissions(SiteId, ConfigManager.ChannelPermissions.ContentCheck))
+            //    //{
+            //    //    //BtnCheck.Attributes.Add("onclick", ModalContentCheck.GetOpenWindowStringForMultiChannels(SiteId, PageUrl));
+            //    //    //if (_isCheckOnly)
+            //    //    //{
+            //    //    //    BtnCheck.CssClass = "btn m-r-5 btn-success";
+            //    //    //}
+            //    //}
+            //    //else
+            //    //{
+            //    //    PhCheck.Visible = false;
+            //    //}
 
-                if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentTranslate))
-                {
-                    BtnTranslate.Visible = false;
-                }
-                else
-                {
-                    BtnTranslate.Attributes.Add("onclick", PageContentTranslate.GetRedirectClickStringForMultiChannels(SiteId, PageUrl));
-                }
+            //    //if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentTranslate))
+            //    //{
+            //    //    BtnTranslate.Visible = false;
+            //    //}
+            //    //else
+            //    //{
+            //    //    BtnTranslate.Attributes.Add("onclick", PageContentTranslate.GetRedirectClickStringForMultiChannels(SiteId, PageUrl));
+            //    //}
 
-                if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentDelete))
-                {
-                    BtnDelete.Visible = false;
-                }
-                else
-                {
-                    BtnDelete.Attributes.Add("onclick", PageContentDelete.GetRedirectClickStringForMultiChannels(SiteId, false, PageUrl));
-                }
-            }
+            //    //if (!HasChannelPermissions(_channelId, ConfigManager.ChannelPermissions.ContentDelete))
+            //    //{
+            //    //    BtnDelete.Visible = false;
+            //    //}
+            //    //else
+            //    //{
+            //    //    BtnDelete.Attributes.Add("onclick", PageContentDelete.GetRedirectClickStringForMultiChannels(SiteId, false, PageUrl));
+            //    //}
+            //}
         }
 
         private void RptContents_ItemDataBound(object sender, RepeaterItemEventArgs e)

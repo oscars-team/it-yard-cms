@@ -59,8 +59,8 @@
 
               </div>
             </div>
-            <div class="form-group form-row">
-              <label class="col-1 col-form-label text-right">内容组</label>
+            <div class="form-group form-row" style="display:none;">
+              <label  class="col-1 col-form-label text-right">内容组</label> <%-- modify  on 2019/1/24--%>
               <div class="col-6">
                 <asp:CheckBoxList ID="CblContentGroups" RepeatDirection="Horizontal" class="checkbox checkbox-primary" RepeatColumns="5"
                   runat="server" />
@@ -93,7 +93,7 @@
               </div>
             </asp:PlaceHolder>
 
-            <div class="form-group form-row">
+            <div class="form-group form-row" style="display:none;">
               <label class="col-1 col-form-label text-right">外部链接</label>
               <div class="col-6">
                 <asp:TextBox ID="TbLinkUrl" class="form-control" runat="server" />
@@ -138,7 +138,7 @@
           <div class="text-center">
             <asp:Button class="btn btn-primary m-r-5" itemIndex="1" ID="BtnSubmit" Text="确 定" OnClick="Submit_OnClick" runat="server"
             />
-            <input class="btn btn-success m-r-5" type="button" onClick="preview();" value="预 览" />
+            <input style="display:none" class="btn btn-success m-r-5" type="button" onClick="preview();" value="预 览" />
             <input class="btn" type="button" onclick="location.href='<%=ReturnUrl%>';return false;" value="返 回" />
             <small class="form-text text-muted m-t-5">
               提示：按CTRL+回车可以快速提交

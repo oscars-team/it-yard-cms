@@ -276,12 +276,13 @@ function detection_{attributeName}(){{
 "">
     <button class=""btn"" onclick=""{ModalTextEditorImportWord.GetOpenWindowString(siteInfo.Id, attributeName)}"">导入Word</button>
     <button class=""btn"" onclick=""{ModalTextEditorInsertImage.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入图片</button>
-    <button class=""btn"" onclick=""{ModalTextEditorInsertVideo.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入视频</button>
-    <button class=""btn"" onclick=""{ModalTextEditorInsertAudio.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入音频</button>
+    <button style='display:none;'class=""btn"" onclick=""{ModalTextEditorInsertVideo.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入视频</button>
+    <button style='display:none;' class=""btn"" onclick=""{ModalTextEditorInsertAudio.GetOpenWindowString(siteInfo.Id, attributeName)}"">插入音频</button>
     <button class=""btn"" onclick=""getWordSpliter();return false;"">提取关键字</button>
     <button class=""btn"" onclick=""detection_{attributeName}();return false;"">敏感词检测</button>
 </div>
 ";
+            ////modify on 2019/1/27
         }
 
         public static string GetAutoCheckKeywordsScript(SiteInfo siteInfo)
@@ -359,10 +360,10 @@ function autoReplaceKeywords() {{
     <button class=""btn"" onclick=""{ModalSelectImage.GetOpenWindowString(siteInfo, attributeName)}"">
         选择
     </button>
-    <button class=""btn"" onclick=""{ModalCuttingImage.GetOpenWindowStringWithTextBox(siteInfo.Id, attributeName)}"">
+    <button style='display:none;' class=""btn"" onclick=""{ModalCuttingImage.GetOpenWindowStringWithTextBox(siteInfo.Id, attributeName)}"">
         裁切
     </button>
-    <button class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewImage(siteInfo.Id, attributeName)}"">
+    <button style='display:none;' class=""btn"" onclick=""{ModalMessage.GetOpenWindowStringToPreviewImage(siteInfo.Id, attributeName)}"">
         预览
     </button>
 </div>
